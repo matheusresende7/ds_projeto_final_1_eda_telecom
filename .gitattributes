@@ -1,2 +1,9 @@
-# Auto detect text files and perform LF normalization
 * text=auto
+
+*.py text eol=lf
+*.cfg text eol=lf
+*.csv text eol=lf 
+
+docs/ export-ignore
+presentations/ export-ignore
+.gitignore export-ignore

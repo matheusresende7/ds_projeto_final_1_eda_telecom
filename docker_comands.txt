@@ -1,0 +1,3 @@
+docker build -t ds_projeto_final_1 .
+
+docker run -it -p 8888:8888 -v "%cd%":/workspace --name ds_projeto_final_1 ds_projeto_final_1 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --FileCheckpoints.checkpoint_dir=/tmp/.checkpoints
