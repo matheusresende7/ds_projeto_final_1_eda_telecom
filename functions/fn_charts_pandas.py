@@ -40,7 +40,7 @@ def countplot(df: pd.DataFrame, x_columns: List[str], num_cols: int = 3, height_
 
         order = sorted(df[x_column].dropna().unique(), reverse = False)
 
-        sns.countplot(data = df, x = x_column, ax = axs[i], order = order)
+        sns.countplot(data = df, x = x_column, ax = axs[i], order = order, color = '#1f77b4')
 
         axs[i].set(title = f'Barplot - {x_column}', xlabel = '', ylabel = '')
 
