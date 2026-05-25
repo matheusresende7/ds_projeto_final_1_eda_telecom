@@ -167,7 +167,7 @@ def boxplot(df: pd.DataFrame, y_columns: List[str], x_column: str = None, hue_co
 
 
 
-def heatmap(df: pd.DataFrame) -> tuple[plt.Figure, list]:
+def heatmap(df: pd.DataFrame, figsizex: float = 7.5, figsizey: float = 7.5) -> tuple[plt.Figure, list]:
     """
     Função que gera um mapa de calor.
 
@@ -178,7 +178,7 @@ def heatmap(df: pd.DataFrame) -> tuple[plt.Figure, list]:
         tuple: Uma tupla contendo a figura (`fig`) e a lista de eixos (`axs`) gerados.
     """
 
-    fig, axs = plt.subplots(figsize = (7.5, 7.5), nrows = 1, ncols = 1, tight_layout = True)
+    fig, axs = plt.subplots(figsize = (figsizex, figsizey), nrows = 1, ncols = 1, tight_layout = True)
 
     sns.heatmap(data = df, annot = True, ax = axs, fmt = '.1f', cmap = 'coolwarm_r', annot_kws = {'size': 6})
 
