@@ -129,7 +129,7 @@ def histplot(df: pd.DataFrame, x_columns: List[str], hue_column: str = None, num
 
 
 
-def boxplot(df: pd.DataFrame, y_columns: List[str], x_column: str = None, hue_column: str = None, num_cols: int = 3, height_figsize: int = 5) -> tuple[plt.Figure, list]:
+def boxplot(df: pd.DataFrame, y_columns: List[str], x_column: str = None, hue_column: str = None, num_cols: int = 3, height_figsize: int = 5, labelxrotation: int = 0) -> tuple[plt.Figure, list]:
     """
     Função que gera uma lista de diagramas de caixa.
 
@@ -140,6 +140,7 @@ def boxplot(df: pd.DataFrame, y_columns: List[str], x_column: str = None, hue_co
         hue_column (str, opcional): Coluna "categórica" usada como hue. Padrão = None.
         num_cols (int, opcional): Número de diagramas de caixa por linha. Padrão = 3.
         height_figsize (int, opcional): Altura da figura. Padrão = 5.
+        labelxrotation (int, opcional): Inclinação dos labels do eixo X. Padrão = 0.
 
     Returns:
         tuple: Uma tupla contendo a figura (`fig`) e a lista de eixos (`axs`) gerados.
@@ -158,6 +159,8 @@ def boxplot(df: pd.DataFrame, y_columns: List[str], x_column: str = None, hue_co
         sns.boxplot(data = df, x = x_column, y = y_column, hue = hue_column, ax = axs[i], showmeans = True, palette = 'tab10' if hue_column else None)
 
         axs[i].set(title = f'Boxplot - {y_column}', xlabel = '', ylabel = '')
+
+        axs[i].tick_params(axis = 'x', labelrotation = labelxrotation)
 
     for ax in axs[total_columns:]:
 
